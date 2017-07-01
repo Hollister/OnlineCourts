@@ -38,10 +38,12 @@ namespace OnlineCourt.Controllers
 
         public ActionResult Test()
         {
+            string testPhrase = "The claimant did not fulfil all of their obligations so I dispute paying the full invoice";
+    
             OnlineCourt.TextAnalysis.TextAnalysis ta = new TextAnalysis.TextAnalysis();
-            var t = ta.DetectKeyPhrases("this is a test");
+            var t = ta.DetectKeyPhrases(testPhrase);
             decimal u;
-            var x = ta.DetectLanguages("this is a test", out u);
+            var x = ta.DetectLanguages(testPhrase, out u);
 
             return RedirectToAction("CaseOfficer");
         }
