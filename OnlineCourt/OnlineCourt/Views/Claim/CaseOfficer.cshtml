@@ -6,7 +6,7 @@
 
 <script>
     
-    $( document ).ready(function() {
+    $(document).ready(function() {
 
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -16,6 +16,9 @@
 
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
+
+            //alert(panel.style.maxHeight);
+
             if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
             } else {
@@ -104,17 +107,16 @@
         padding: 0 18px;
         background-color: white;
         max-height: 0;
-        overflow: auto;
-        height:100%;
+        overflow:auto;
         transition: max-height 0.2s ease-out;
     } 
 
     button.accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: #777;
-    float: right;
-    margin-left: 5px;
+        content: '\02795'; /* Unicode character for "plus" sign (+) */
+        font-size: 13px;
+        color: #777;
+        float: right;
+        margin-left: 5px;
     }
 
      button.accordion.active:after {
@@ -148,9 +150,7 @@
 
      button.accordion2.active:after {
         content: "\2796"; /* Unicode character for "minus" sign (-) */
-    }
-
-
+     }
 </style>
 
 <h2>@ViewBag.Title</h2>
@@ -158,21 +158,22 @@
 @Html.Partial("_CaseHeader", Model)
 
 <div>
+    <br/>
     Please find below your current list of allegations for you to action.
+    <br />
 </div>
 
 @foreach (var claimFact in Model.ClaimFacts)
 {
     <button class="accordion">@claimFact.ClaimantClaim</button>
     <div class="panel">
-        <div>
+        <div style="height:420px">
+            <div style="float:left">
             <h3>Conversations</h3>
             @foreach (var question in claimFact.Questions)
             {
 
             <div>
-
-
                     @if (question.CaseOfficerQuestion)
                     {
                         <button class="accordion2">@question.Question</button>
@@ -338,21 +339,21 @@
                             </div>
                         </div>
                     }
+            </div>
+            <div style="float:right">
+                <p>
+                    <h4>Case Officer Evaluation</h4>
+                    @Html.TextArea("Description", null, new { @class = "form-control" })
+                    <input type="button" value="Post" />
+                </p>
+                <p>
+                    <h4>Support Documentation</h4>
+                    Documents Here
+                </p>
+            </div>  
         </div>
     </div>
 }
-
-<div>
-    <p>
-        <h4>Case Officer Comments</h4>
-        @Html.TextArea("Description", null, new { @class = "form-control" })
-        <input type="button" value="Post" />
-    </p>
-    <p>
-        <h4>Support Documentation</h4>
-        Documents Here
-    </p>
-</div>
 
 <!--
 <div id="accordion">
