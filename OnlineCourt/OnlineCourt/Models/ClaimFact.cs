@@ -9,9 +9,11 @@ namespace OnlineCourt.Models
     {
         public string ClaimFactCode { get; set; }
         public string ClaimantClaim { get; set; }
+        public string ClaimantClaimResponse { get; set; }
         public string ClaimantClaimDetectedLanguage { get; set; }
         public decimal ClaimantClaimDetectedLanguageConfidence { get; set; }
         public string ClaimantClaimDetectedKeyPhrases { get; set; }
+        public string DefendantQuestion { get; set; }
         public string DefendantResponse { get; set; }
         public string DefendantResponseDetectedLanguage { get; set; }
         public decimal DefendantResponseDetectedLanguageConfidence { get; set; }
