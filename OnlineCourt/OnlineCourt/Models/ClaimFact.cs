@@ -7,6 +7,7 @@ namespace OnlineCourt.Models
 {
     public class ClaimFact
     {
+        public string ClaimFactCode { get; set; }
         public string ClaimantClaim { get; set; }
         public string ClaimantClaimDetectedLanguage { get; set; }
         public decimal ClaimantClaimDetectedLanguageConfidence { get; set; }
