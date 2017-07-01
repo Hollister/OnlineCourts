@@ -37,7 +37,7 @@
 
     <div class="tile">
         Guide through the process of raising a claim?
-        <a href="~/Content/Claimant.mov" target="_blank">Click Here</a>
+        @Html.ActionLink("Click Here", "Claimant", "Claim")
     </div>
 
     <div class="tile">
@@ -47,7 +47,7 @@
 
     <div class="tile">
         Defendents view of the claim
-        @Html.ActionLink("Click Here", "CaseOfficer", "Claim")
+        @Html.ActionLink("Click Here", "Video", "Claim")
     </div>
 
 </div>
