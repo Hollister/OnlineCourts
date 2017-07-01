@@ -4,6 +4,32 @@
     ViewBag.Title = Model.ClaimTitle;
 }
 
+<style>
+    #from {
+        float:left;
+    }
+
+    #to {
+        margin-left:100px;
+        float:right;
+    }
+
+    #accordion
+    {
+
+    }
+
+    #accordin2{
+
+
+    }
+
+    #convoContainer
+    {
+        border:solid;
+    }
+</style>
+
 <script>
     $(function () {
         //$("#accordion").accordion();
@@ -25,32 +51,38 @@
 
 <div id="accordion">
     <h3>Mr Daniel Foster: Allegation 1</h3>
-    <div>
-       <p>
+    <div id="mainContainer">
+        <p>
             Summary of allegation here
-       </p>
+        </p>
         <p>
             <h4>Questions</h4>
-
-            <div class="from">I am starting conversation</div>
-            <div class="from">I am replying to conversation</div>
-            <br/>
-            <b>Reply</b>
-            @Html.TextArea("Description", null, new { @class = "form-control" })
+            <div id="accordin2">
+                <p>Question 1</p>
+                <div id="convoContainer">
+                    <div class="from">I am starting conversation</div>
+                    <div class="to">I am replying to conversation</div>
+                </div>
+                <br />
+                <b>Send Reply</b>
+                @Html.TextArea("Description", null, new { @class = "form-control" })
+                <input type="button" value="Post" />
+            </div>
         </p>
         <p>
             <h4>Case Officer Comments</h4>
-             @Html.TextArea("Description", null, new { @class = "form-control" })
+            @Html.TextArea("Description", null, new { @class = "form-control" })
+            <input type="button" value="Post" />
         </p>
         <p>
             <h4>Support Documentation</h4>
-        </p>
             Documents Here
+        </p>
         <p>
             <h4>Actions</h4>
         </p>
         <a href="https://appear.in/OnlineCourt?video=on" target="_blank">Start Video Call</a>
-       </div>
+    </div>
 </div>
 
 
