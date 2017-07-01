@@ -6,13 +6,33 @@
 
 <script>
     
-    $( document ).ready(function() {
+    $(document).ready(function() {
 
     var acc = document.getElementsByClassName("accordion");
     var i;
 
     for (i = 0; i < acc.length; i++) {
         acc[i].onclick = function () {
+
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+
+            //alert(panel.style.maxHeight);
+
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        }
+    }
+
+
+    var acc2 = document.getElementsByClassName("accordion2");
+    var i;
+
+    for (i = 0; i < acc2.length; i++) {
+        acc2[i].onclick = function () {
 
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
@@ -87,21 +107,50 @@
         padding: 0 18px;
         background-color: white;
         max-height: 0;
-        overflow: auto;
+        overflow:auto;
         transition: max-height 0.2s ease-out;
     } 
 
     button.accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: #777;
-    float: right;
-    margin-left: 5px;
+        content: '\02795'; /* Unicode character for "plus" sign (+) */
+        font-size: 13px;
+        color: #777;
+        float: right;
+        margin-left: 5px;
     }
 
      button.accordion.active:after {
         content: "\2796"; /* Unicode character for "minus" sign (-) */
     }
+
+     button.accordion2 {
+        background-color:lightblue;
+        color: #444;
+        cursor: pointer;
+        padding: 8px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+    }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+     button.accordion2.active, button.accordion2:hover {
+        background-color: dodgerblue;
+    }
+
+     button.accordion2:after {
+        content: '\02795'; /* Unicode character for "plus" sign (+) */
+        font-size: 13px;
+        color: #777;
+        float: right;
+        margin-left: 5px;
+    }
+
+     button.accordion2.active:after {
+        content: "\2796"; /* Unicode character for "minus" sign (-) */
+     }
 </style>
 
 <h2>@ViewBag.Title</h2>
@@ -109,76 +158,199 @@
 @Html.Partial("_CaseHeader", Model)
 
 <div>
+    <br/>
     Please find below your current list of allegations for you to action.
+    <br />
 </div>
 
 @foreach (var claimFact in Model.ClaimFacts)
 {
     <button class="accordion">@claimFact.ClaimantClaim</button>
     <div class="panel">
-        <div>
-            -
-        </div>
-        <div>
-            <h4>Questions</h4>
+        <div style="height:420px">
+            <div style="float:left">
+            <h3>Conversations</h3>
             @foreach (var question in claimFact.Questions)
             {
 
             <div>
-                <table id="convoContainer">
-
                     @if (question.CaseOfficerQuestion)
                     {
-                        <tr><td class="CaseOfficerQuestion" colspan="2">@question.Question</td></tr>
+                        <button class="accordion2">@question.Question</button>
+                        <div class="panel">
+                            <table>
+                                @foreach (var res in question.Responses)
+                                {
+                                    if (res.IsCaseOfficeResponse)
+                                    {
+                                        <tr>
+                                            <td class="from">
+                                                @res.Response
+                                                <br />
+                                                @res.ResponseDate
+                                                <br />
+                                                [Case Officer]
+                                            </td>
+                                        </tr>
+                                    }
 
+                                    if (res.IsClaimantResponse)
+                                    {
+                                        <tr>
+                                            <td></td>
+                                            <td class="to">
+                                                @res.Response
+                                                <br />
+                                                @res.ResponseDate
+                                                <br />
+                                                [Claimant]
+                                            </td>
+                                        </tr>
+                                    }
 
+                                    if (res.IsDefendantResponse)
+                                    {
+                                        <tr>
+                                            <td></td>
+                                            <td class="to">
+                                                @res.Response
+                                                <br />
+                                                @res.ResponseDate
+                                                <br />
+                                                [Defendent]
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </table>
+                            </div>
+                            }
 
-                    }
+                            @if (question.DefendantQuestion)
+                            {
+                                <button class="accordion2">@question.Question</button>
+                                <div class="panel">
+                                    <table>
+                                        @foreach (var res in question.Responses)
+                                        {
+                                            if (res.IsCaseOfficeResponse)
+                                            {
+                                                <tr>
+                                                    <td class="to">
+                                                        @res.Response
+                                                        <br />
+                                                        @res.ResponseDate
+                                                        <br />
+                                                        [Case Officer]
+                                                    </td>
+                                                </tr>
+                                            }
 
-                    @if (question.DefendantQuestion)
-                    {
-                        <tr><td class="DefendantQuestion" colspan="2">@question.Question</td></tr>
+                                            if (res.IsClaimantResponse)
+                                            {
+                                                <tr>
+                                                    <td></td>
+                                                    <td class="to">
+                                                        @res.Response
+                                                        <br />
+                                                        @res.ResponseDate
+                                                        <br />
+                                                        [Claimant]
+                                                    </td>
+                                                </tr>
+                                            }
 
+                                            if (res.IsDefendantResponse)
+                                            {
+                                                <tr>
+                                                    <td></td>
+                                                    <td class="from">
+                                                        @res.Response
+                                                        <br />
+                                                        @res.ResponseDate
+                                                        <br />
+                                                        [Defendent]
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                    </table>
+                                </div>
+                            }
 
+                            @if (question.ClaimantQuestion)
+                            {
+                                <button class="accordion2">@question.Question</button>
+                                <div class="panel">
+                                    <table>
+                                        @foreach (var res in question.Responses)
+                                        {
+                                            if (res.IsCaseOfficeResponse)
+                                            {
+                                                <tr>
+                                                    <td class="to">
+                                                        @res.Response
+                                                        <br />
+                                                        @res.ResponseDate
+                                                        <br />
+                                                        [Case Officer]
+                                                    </td>
+                                                </tr>
+                                            }
 
-                    }
+                                            if (res.IsClaimantResponse)
+                                            {
+                                                <tr>
+                                                    <td></td>
+                                                    <td class="from">
+                                                        @res.Response
+                                                        <br />
+                                                        @res.ResponseDate
+                                                        <br />
+                                                        [Claimant]
+                                                    </td>
+                                                </tr>
+                                            }
 
-                    @if (question.ClaimantQuestion)
-                    {
-                        <tr><td class="ClaimantQuestion" colspan="2">@question.Question</td></tr>
+                                            if (res.IsDefendantResponse)
+                                            {
+                                                <tr>
+                                                    <td></td>
+                                                    <td class="to">
+                                                        @res.Response
+                                                        <br />
+                                                        @res.ResponseDate
+                                                        <br />
+                                                        [Defendent]
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
 
+                                    </table>
+                                </div>
+                            }
 
-
-                    }
-
-                    @foreach (var res in question.Responses)
-                    {
-
-
-
-                        <tr>
-                            <td class="from">
-                                @res.Response
+                            <div>
                                 <br />
-                                @res.ResponseDate
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td class="to">I am starting conversation I am starting conversation I am starting conversation</td>
-                        </tr>
+                                <b>Send Reply</b>
+                                @Html.TextArea("Description", null, new { @class = "form-control" })
+                                <input type="button" value="Post" />
+                            </div>
+                        </div>
                     }
-
-
-                </table>
-                <div>
-                    <br />
-                    <b>Send Reply</b>
+            </div>
+            <div style="float:right">
+                <p>
+                    <h4>Case Officer Evaluation</h4>
                     @Html.TextArea("Description", null, new { @class = "form-control" })
                     <input type="button" value="Post" />
-                </div>
-            </div>
-          }
+                </p>
+                <p>
+                    <h4>Support Documentation</h4>
+                    Documents Here
+                </p>
+            </div>  
         </div>
     </div>
 }
