@@ -2,22 +2,52 @@
     ViewBag.Title = "Online Court Portal";
 }
 
+<style>
+    .tile{
+        float:left;
+        height:150px;
+        width:200px;
+        border-radius: 15px;
+        background-color:lightblue;
+        text-align:center;
+        padding:10px;
+        margin:10px;
+    }
+
+    .row{
+      width: 60%;
+      margin: 0 auto;
+    }
+</style>
+
 <div class="jumbotron">
-    <h1>Welcome</h1>
-    <p class="lead">to the Online Solutions Court</p>
+    <table style="width:100%">
+        <tr>
+            <td>
+                <h1>Welcome</h1>
+                <p class="lead">to the Online Solutions Court</p>
+            </td>
+            <td style="float:right;">
+                <img src="~/Content/HM_Courts_&_Tribunals_Service.png" />
+            </td>
+        </tr>
+    </table>
 </div>
-
 <div class="row">
-    Are you a Judge?
-    @Html.ActionLink("Click Here", "CaseOfficer", "Claim")
 
-    <br/>
+    <div class="tile">
+        Are you a Judge?
+        @Html.ActionLink("Click Here", "CaseOfficer", "Claim")
+    </div>
 
-    Do you want to start an allegation?
-    @Html.ActionLink("Click Here", "CaseOfficer", "Claim")
+    <div class="tile">
+        Do you want to start an allegation?
+        <a href="~/Content/Claimant.mov" target="_blank">Click Here</a>
+    </div>
 
-    <br/>
+    <div class="tile">
+        Are you a Defendent?
+        @Html.ActionLink("Click Here", "CaseOfficer", "Claim")
+    </div>
 
-    Are you a Defendent?
-    @Html.ActionLink("Click Here", "CaseOfficer", "Claim")
 </div>
