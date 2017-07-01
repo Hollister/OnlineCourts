@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCourt", "OnlineCourt\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCourt.TextAnalysis", "OnlineCourt.TextAnalysis\OnlineCourt.TextAnalysis.csproj", "{87A4CC53-B50C-452A-A279-F6E3B7E7A7B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCourt.Emailer", "OnlineCourt.Emailer\OnlineCourt.Emailer.csproj", "{69747108-9954-418B-B19C-5E3B8A4B2068}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{87A4CC53-B50C-452A-A279-F6E3B7E7A7B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87A4CC53-B50C-452A-A279-F6E3B7E7A7B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87A4CC53-B50C-452A-A279-F6E3B7E7A7B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69747108-9954-418B-B19C-5E3B8A4B2068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69747108-9954-418B-B19C-5E3B8A4B2068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69747108-9954-418B-B19C-5E3B8A4B2068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69747108-9954-418B-B19C-5E3B8A4B2068}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
