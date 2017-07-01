@@ -38,7 +38,8 @@ namespace OnlineCourt.Code
                 Question = "What obligations from the agreement were not met?",
                 Date = new DateTime(2017, 2, 20),
                 Responses = new List<CaseFactQuestionResponse> {
-                        new CaseFactQuestionResponse { IsDefendantResponse = true, Response = "Contracted staff were not available on Fridays, but the agreement stated there would staff available at all times", ResponseDate = new DateTime(2017, 2, 21) }
+                        new CaseFactQuestionResponse { IsDefendantResponse = true, Response = "Contracted staff were not available on several occasions, but the agreement stated there would be guaranteed staff availability", ResponseDate = new DateTime(2017, 2, 21) },
+                        new CaseFactQuestionResponse { IsClaimantResponse = true, Response = "We always do our best to make sure staff are always available, but due to staff shortages did fail to deliver on this on occasion", ResponseDate = new DateTime(2017, 2, 22) }
                     }
             });
 
@@ -55,7 +56,7 @@ namespace OnlineCourt.Code
 
             return new ClaimFact
             {
-                ClaimantClaim = "The defendant has caused me loss by doing or failing to do something under the terms of an agreement in a written document on 12/04/2016." + Environment.NewLine + "Failed to pay an invoice for staff" + Environment.NewLine + "Outstanding unpaid bill for £12,000",
+                ClaimantClaim = "The defendant has caused us loss by doing or failing to do something under the terms of an agreement in a written document on 12/04/2016." + Environment.NewLine + "Failed to pay an invoice for staff" + Environment.NewLine + "Outstanding unpaid bill for £12,000",
                 ClaimantClaimDetectedKeyPhrases = "Outstanding unpaid bill, invoice, staff",
                 ClaimantClaimDetectedLanguage = "English",
                 ClaimantClaimDetectedLanguageConfidence = 100,
