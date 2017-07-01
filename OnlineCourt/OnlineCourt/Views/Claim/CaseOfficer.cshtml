@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Case Officer";
+}
+
+<script>
+    $(function () {
+        //$("#accordion").accordion();
+    });
+</script>
+
+<h2>Judge</h2>
+
+<div>
+    Please find below your current list of allegations for you to action.
+</div>
+
+<div id="accordion">
+    <h3>Mr Daniel Foster: Allegation 1</h3>
+    <div>
+       <p>
+            Summary of allegation here
+       </p>
+        <p>
+            <h4>Questions</h4>
+
+            <div class="from">I am starting conversation</div>
+            <div class="from">I am replying to conversation</div>
+            <br/>
+            <b>Reply</b>
+            @Html.TextArea("Description", null, new { @class = "form-control" })
+        </p>
+        <p>
+            <h4>Case Officer Comments</h4>
+             @Html.TextArea("Description", null, new { @class = "form-control" })
+        </p>
+        <p>
+            <h4>Support Documentation</h4>
+        </p>
+            Documents Here
+        <p>
+            <h4>Actions</h4>
+        </p>
+        <a href="https://appear.in/OnlineCourt?video=on" target="_blank">Start Video Call</a>
+       </div>
+</div>
+
+

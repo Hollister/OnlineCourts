@@ -14,7 +14,7 @@ namespace OnlineCourt.Controllers
             return View();
         }
 
-        public ActionResult Judge()
+        public ActionResult CaseOfficer()
         {
             return View();
         }
