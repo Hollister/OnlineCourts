@@ -2,25 +2,23 @@
 @using OnlineCourt.Models
 @model Claim
 
-<table>
-    <tr>
-        <td>
-            <div class="claimantHeaderInfo">
-                <h4>Claimant</h4>
-                <div>@Model.ClaimantName</div>
-                <div>@Html.Raw(HttpUtility.HtmlEncode(Model.ClaimantAddress).Replace("\n", "<br/>"))</div>
-            </div>
-        </td>
-        <td width="100"></td>
-        <td>
-            <div class="defendantHeaderInfo">
-                <h4>Defendant</h4>
-                <div>@Model.DefendantName</div>
-                <div>@Html.Raw(HttpUtility.HtmlEncode(Model.DefendantAddress).Replace("\n", "<br/>"))</div>
-            </div>
-        </td>
-    </tr>
-</table>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="claimantHeaderInfo">
+            <h4>Claimant</h4>
+            <div>@Model.ClaimantName</div>
+            <div>@Html.Raw(HttpUtility.HtmlEncode(Model.ClaimantAddress).Replace("\n", "<br/>"))</div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="defendantHeaderInfo">
+            <h4>Defendant</h4>
+            <div>@Model.DefendantName</div>
+            <div>@Html.Raw(HttpUtility.HtmlEncode(Model.DefendantAddress).Replace("\n", "<br/>"))</div>
+        </div>
+    </div>
+</div>
+
 
 <a class="btn btn-default" href="https://appear.in/OnlineCourt@(Model.Id)" target="_new">
     <i class="fa fa-user-circle"></i> Meet Now
