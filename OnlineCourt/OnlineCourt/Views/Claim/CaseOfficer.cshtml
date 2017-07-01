@@ -4,37 +4,105 @@
     ViewBag.Title = Model.ClaimTitle;
 }
 
+<script>
+    
+    $( document ).ready(function() {
+
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function () {
+
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        }
+    }
+
+    });
+</script>
+
 <style>
-    #from {
-        float:left;
+    .from {
+        background-color:deepskyblue;
+        border-radius: 25px;
+        padding:10px;
+        margin:5px;
+        width:200px;
     }
 
-    #to {
-        margin-left:100px;
-        float:right;
-    }
-
-    #accordion
-    {
-
-    }
-
-    #accordin2{
-
-
+    .to {
+        margin-top:10px;
+        background-color:cornflowerblue;
+        border-radius: 25px;
+        padding:10px;
+        margin:5px;
+        width:200px;
     }
 
     #convoContainer
     {
-        border:solid;
+        width:400px;
+    }
+
+    .CaseOfficerQuestion
+    {
+        background-color:lightgreen;
+    }
+    
+    .DefendantQuestion
+    {
+        background-color:lightblue;
+    }
+
+    .ClaimantQuestion
+    {
+        background-color:lightgray;
+    }
+
+    button.accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+    }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+     button.accordion.active, button.accordion:hover {
+        background-color: #ddd;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    div.panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: auto;
+        transition: max-height 0.2s ease-out;
+    } 
+
+    button.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+    }
+
+     button.accordion.active:after {
+        content: "\2796"; /* Unicode character for "minus" sign (-) */
     }
 </style>
-
-<script>
-    $(function () {
-        //$("#accordion").accordion();
-    });
-</script>
 
 <h2>@ViewBag.Title</h2>
 
@@ -46,43 +114,126 @@
 
 @foreach (var claimFact in Model.ClaimFacts)
 {
-    <h3>@claimFact.ClaimantClaim</h3>
+    <button class="accordion">@claimFact.ClaimantClaim</button>
+    <div class="panel">
+        <div>
+            -
+        </div>
+        <div>
+            <h4>Questions</h4>
+            @foreach (var question in claimFact.Questions)
+            {
+
+            <div>
+                <table id="convoContainer">
+
+                    @if (question.CaseOfficerQuestion)
+                    {
+                        <tr><td class="CaseOfficerQuestion" colspan="2">@question.Question</td></tr>
+
+
+
+                    }
+
+                    @if (question.DefendantQuestion)
+                    {
+                        <tr><td class="DefendantQuestion" colspan="2">@question.Question</td></tr>
+
+
+
+                    }
+
+                    @if (question.ClaimantQuestion)
+                    {
+                        <tr><td class="ClaimantQuestion" colspan="2">@question.Question</td></tr>
+
+
+
+                    }
+
+                    @foreach (var res in question.Responses)
+                    {
+
+
+
+                        <tr>
+                            <td class="from">
+                                @res.Response
+                                <br />
+                                @res.ResponseDate
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="to">I am starting conversation I am starting conversation I am starting conversation</td>
+                        </tr>
+                    }
+
+
+                </table>
+                <div>
+                    <br />
+                    <b>Send Reply</b>
+                    @Html.TextArea("Description", null, new { @class = "form-control" })
+                    <input type="button" value="Post" />
+                </div>
+            </div>
+          }
+        </div>
+    </div>
 }
 
+<!--
 <div id="accordion">
     <h3>Mr Daniel Foster: Allegation 1</h3>
     <div id="mainContainer">
-        <p>
+        <div>
             Summary of allegation here
-        </p>
-        <p>
+        </div>
+        <div>
             <h4>Questions</h4>
             <div id="accordin2">
-                <p>Question 1</p>
-                <div id="convoContainer">
-                    <div class="from">I am starting conversation</div>
-                    <div class="to">I am replying to conversation</div>
+                <table id="convoContainer">
+                    <thead>Question 1</thead>
+                    <tr>
+                        <td class="from">I am starting conversation I am starting conversation I am starting conversation</td>
+                    </tr>
+                    <tr>
+                        <td></td><td class="to">I am starting conversation I am starting conversation I am starting conversation</td>
+                    </tr>
+                    <tr>
+                        <td class="from">I am starting conversation I am starting conversation I am starting conversation</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="to">I am starting conversation I am starting conversation I am starting conversation</td>
+                    </tr>
+                </table>
+                <div>
+                    <br />
+                    <b>Send Reply</b>
+                    @Html.TextArea("Description", null, new { @class = "form-control" })
+                    <input type="button" value="Post" />
                 </div>
-                <br />
-                <b>Send Reply</b>
+            </div>
+        </div>
+        <div>
+            <p>
+                <h4>Case Officer Comments</h4>
                 @Html.TextArea("Description", null, new { @class = "form-control" })
                 <input type="button" value="Post" />
-            </div>
-        </p>
-        <p>
-            <h4>Case Officer Comments</h4>
-            @Html.TextArea("Description", null, new { @class = "form-control" })
-            <input type="button" value="Post" />
-        </p>
-        <p>
-            <h4>Support Documentation</h4>
-            Documents Here
-        </p>
-        <p>
-            <h4>Actions</h4>
-        </p>
-        <a href="https://appear.in/OnlineCourt?video=on" target="_blank">Start Video Call</a>
+            </p>
+            <p>
+                <h4>Support Documentation</h4>
+                Documents Here
+            </p>
+            <p>
+                <h4>Actions</h4>
+            </p>
+            <a href="https://appear.in/OnlineSolutionsCourt?video=on" target="_blank">Start Video Call</a>
+        </div>
     </div>
 </div>
+-->
 
 
