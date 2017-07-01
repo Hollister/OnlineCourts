@@ -262,6 +262,12 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineCourt.TextAnalysis\OnlineCourt.TextAnalysis.csproj">
+      <Project>{87a4cc53-b50c-452a-a279-f6e3b7e7a7b8}</Project>
+      <Name>OnlineCourt.TextAnalysis</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
