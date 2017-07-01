@@ -262,6 +262,7 @@
     <Content Include="Views\Claim\_ClaimFactTextAnalysis.cshtml" />
     <Content Include="Views\Claim\Video.cshtml" />
     <Content Include="Views\Claim\Claimant.cshtml" />
+    <Content Include="Views\Claim\Defendent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -123,9 +123,10 @@
     }
    
      button.accordion {
-        background-color: #eee;
-        color: #444;
+        background-color:mediumaquamarine;
+        color: #fff;
         cursor: pointer;
+        font-weight:bold;
         padding: 18px;
         width: 100%;
         text-align: left;
@@ -136,7 +137,7 @@
 
     /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
      button.accordion.active, button.accordion:hover {
-        background-color: #ddd;
+        background-color:green;
     }
 
     /* Style the accordion panel. Note: hidden by default */
@@ -161,9 +162,10 @@
     }
 
      button.accordion2 {
-        background-color:lightblue;
-        color: #444;
+        background-color:mediumaquamarine;
+        color: #fff;
         cursor: pointer;
+        font-weight:bold;
         padding: 8px;
         width: 100%;
         text-align: left;
@@ -174,7 +176,7 @@
 
     /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
      button.accordion2.active, button.accordion2:hover {
-        background-color: dodgerblue;
+        background-color: green;
     }
 
      button.accordion2:after {
@@ -302,7 +304,7 @@
                         <button class="accordion2">@question.Question</button>
                         <div class="panel">
                             <div style="height:300px">
-                                <table style="width:100%">
+                                <table style="width:100%; margin-top:5px;">
                                     @foreach (var res in question.Responses)
                                 {
                                     if (res.IsCaseOfficeResponse)
@@ -372,10 +374,10 @@
 
                             @if (question.DefendantQuestion)
                             {
-                                <button class="accordion3">@question.Question</button>
+                                <button class="accordion2">@question.Question</button>
                                 <div class="panel">
                                     <div style="height:300px">
-                                        <table style="width:100%">
+                                        <table style="width:100%; margin-top:5px;">
                                             @foreach (var res in question.Responses)
                                         {
                                             if (res.IsCaseOfficeResponse)
@@ -446,10 +448,10 @@
 
                             @if (question.ClaimantQuestion)
                             {
-                                <button class="accordion4">@question.Question</button>
+                                <button class="accordion2">@question.Question</button>
                                 <div class="panel">
                                     <div style="height:300px">
-                                        <table style="width:100%">
+                                        <table style="width:100%; margin-top:5px;">
                                             @foreach (var res in question.Responses)
                                         {
                                             if (res.IsCaseOfficeResponse)

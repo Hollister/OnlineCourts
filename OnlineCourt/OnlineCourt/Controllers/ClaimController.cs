@@ -36,6 +36,11 @@ namespace OnlineCourt.Controllers
             return View();
         }
 
+        public ActionResult Defendent()
+        {
+            return View();
+        }
+
         public ActionResult _CaseHeader()
         {
             return View();
