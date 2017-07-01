@@ -23,7 +23,12 @@ namespace OnlineCourt.Controllers
 
         public ActionResult CaseOfficer()
         {
-            return View(_caseRepository.Get(new Guid("85F04508-7908-41DD-97F2-BCCFCF70C72C"));
+            return View(_caseRepository.Get(new Guid("85F04508-7908-41DD-97F2-BCCFCF70C72C")));
+        }
+
+        public ActionResult _CaseHeader()
+        {
+            return View();
         }
     }
 }

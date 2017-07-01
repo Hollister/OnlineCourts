@@ -1,6 +1,7 @@
-﻿
+﻿@using OnlineCourt.Models
+@model Claim
 @{
-    ViewBag.Title = "Case Officer";
+    ViewBag.Title = Model.ClaimTitle;
 }
 
 <script>
@@ -9,11 +10,18 @@
     });
 </script>
 
-<h2>Judge</h2>
+<h2>@ViewBag.Title</h2>
+
+@Html.Partial("_CaseHeader", Model)
 
 <div>
     Please find below your current list of allegations for you to action.
 </div>
+
+@foreach (var claimFact in Model.ClaimFacts)
+{
+    <h3>@claimFact.ClaimantClaim</h3>
+}
 
 <div id="accordion">
     <h3>Mr Daniel Foster: Allegation 1</h3>
