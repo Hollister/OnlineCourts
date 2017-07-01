@@ -102,27 +102,27 @@
         width:200px;
     }
 
-    #convoContainer
-    {
-        width:400px;
-    }
-
     .CaseOfficerQuestion
     {
-        background-color:lightgreen;
+        background-color:lightblue;
     }
     
     .DefendantQuestion
     {
-        background-color:lightblue;
+        background-color:lightgreen;
     }
 
     .ClaimantQuestion
     {
-        background-color:lightgray;
+        background-color:mediumpurple;
     }
 
-    button.accordion {
+    #convoContainer
+    {
+        width:400px;
+    }
+   
+     button.accordion {
         background-color: #eee;
         color: #444;
         cursor: pointer;
@@ -308,13 +308,14 @@
                                     if (res.IsCaseOfficeResponse)
                                     {
                                         <tr>
-                                            <td class="from">
+                                            <td class="from CaseOfficerQuestion">
                                                 @res.Response
                                                 <br />
                                                 @res.ResponseDate
                                                 <br />
                                                 [Case Officer]
                                             </td>
+                                            <td></td>
                                         </tr>
                                     }
 
@@ -322,7 +323,7 @@
                                     {
                                         <tr>
                                             <td></td>
-                                            <td class="to">
+                                            <td class="to ClaimantQuestion">
                                                 @res.Response
                                                 <br />
                                                 @res.ResponseDate
@@ -336,7 +337,7 @@
                                     {
                                         <tr>
                                             <td></td>
-                                            <td class="to">
+                                            <td class="to DefendantQuestion">
                                                 @res.Response
                                                 <br />
                                                 @res.ResponseDate
@@ -380,7 +381,8 @@
                                             if (res.IsCaseOfficeResponse)
                                             {
                                                 <tr>
-                                                    <td class="to">
+                                                    <td></td>
+                                                    <td class="to CaseOfficerQuestion">
                                                         @res.Response
                                                         <br />
                                                         @res.ResponseDate
@@ -394,7 +396,7 @@
                                             {
                                                 <tr>
                                                     <td></td>
-                                                    <td class="to">
+                                                    <td class="to ClaimantQuestion">
                                                         @res.Response
                                                         <br />
                                                         @res.ResponseDate
@@ -407,14 +409,15 @@
                                             if (res.IsDefendantResponse)
                                             {
                                                 <tr>
-                                                    <td></td>
-                                                    <td class="from">
+                                                   
+                                                    <td class="from DefendantQuestion">
                                                         @res.Response
                                                         <br />
                                                         @res.ResponseDate
                                                         <br />
                                                         [Defendent]
                                                     </td>
+                                                    <td></td>
                                                 </tr>
                                             }
                                         }
@@ -452,7 +455,8 @@
                                             if (res.IsCaseOfficeResponse)
                                             {
                                                     <tr>
-                                                        <td class="to">
+                                                        <td></td>
+                                                        <td class="to CaseOfficerQuestion">
                                                             @res.Response
                                                             <br />
                                                             @res.ResponseDate
@@ -465,14 +469,14 @@
                                             if (res.IsClaimantResponse)
                                             {
                                                     <tr>
-                                                        <td></td>
-                                                        <td class="from">
+                                                        <td class="from ClaimantQuestion">
                                                             @res.Response
-                                                            <br />
+                                                            <br />hello
                                                             @res.ResponseDate
                                                             <br />
                                                             [Claimant]
                                                         </td>
+                                                        <td></td>
                                                     </tr>
                                             }
 
@@ -480,7 +484,7 @@
                                             {
                                                     <tr>
                                                         <td></td>
-                                                        <td class="to">
+                                                        <td class="to DefendantQuestion">
                                                             @res.Response
                                                             <br />
                                                             @res.ResponseDate
