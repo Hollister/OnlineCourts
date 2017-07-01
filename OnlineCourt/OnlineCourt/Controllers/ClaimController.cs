@@ -30,5 +30,20 @@ namespace OnlineCourt.Controllers
         {
             return View();
         }
+
+        public ActionResult _ClaimFactTextAnalysis()
+        {
+            return View();
+        }
+
+        public ActionResult Test()
+        {
+            OnlineCourt.TextAnalysis.TextAnalysis ta = new TextAnalysis.TextAnalysis();
+            var t = ta.DetectKeyPhrases("this is a test");
+            decimal u;
+            var x = ta.DetectLanguages("this is a test", out u);
+
+            return RedirectToAction("CaseOfficer");
+        }
     }
 }

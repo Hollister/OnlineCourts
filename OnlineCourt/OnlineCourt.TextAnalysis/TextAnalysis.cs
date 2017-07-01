@@ -27,7 +27,7 @@ namespace OnlineCourt.TextAnalysis
         {
             var queryString = HttpUtility.ParseQueryString(string.Empty);
             queryString["numberOfLanguagesToDetect"] = "1".ToString(CultureInfo.InvariantCulture);
-            var uriLang = "languages" + " ? " + queryString;
+            var uriLang = "languages" + "?" + queryString;
 
             RootObject langaugeRO = PerformTextAnalysis(text, uriLang);
 
