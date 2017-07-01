@@ -191,9 +191,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Case Hearing.mp4" />
     <Content Include="Content\Claimant.mov" />
     <Content Include="Content\HMCTS.png" />
     <Content Include="Content\HM_Courts_&amp;_Tribunals_Service.png" />
+    <Content Include="Content\PT-Logo-sm-black.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -257,6 +259,8 @@
     <Content Include="Views\Claim\CaseOfficer.cshtml" />
     <Content Include="Views\Claim\_CaseHeader.cshtml" />
     <Content Include="Views\Claim\_ClaimFactTextAnalysis.cshtml" />
+    <Content Include="Views\Claim\Video.cshtml" />
+    <Content Include="Views\Claim\Claimant.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
