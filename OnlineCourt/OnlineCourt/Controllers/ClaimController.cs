@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineCourt.Code;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,13 @@ namespace OnlineCourt.Controllers
 {
     public class ClaimController : Controller
     {
-        // GET: Claim
+        readonly CaseRepository _caseRepository;
+
+        public ClaimController()
+        {
+            _caseRepository = new CaseRepository();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -16,7 +23,7 @@ namespace OnlineCourt.Controllers
 
         public ActionResult CaseOfficer()
         {
-            return View();
+            return View(_caseRepository.Get(new Guid("85F04508-7908-41DD-97F2-BCCFCF70C72C"));
         }
     }
 }

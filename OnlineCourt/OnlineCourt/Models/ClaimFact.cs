@@ -16,5 +16,6 @@ namespace OnlineCourt.Models
         public decimal DefendantResponseDetectedLanguageConfidence { get; set; }
         public decimal DefendantResponseDetectedKeyPhrases { get; set; }
         public string CaseOfficerComment { get; set; }
+        public List<CaseFactQuestion> Questions { get; set; }
     }
 }
