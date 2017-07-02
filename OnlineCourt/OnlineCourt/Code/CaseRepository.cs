@@ -41,15 +41,15 @@ namespace OnlineCourt.Code
 
             return new ClaimFact
             {
-                ClaimFactCode = "A",
+                ClaimFactCode = "1",
                 ClaimantClaim = "How did the Defendant's obligations to you arise?",
                 ClaimantClaimResponse = "Under the terms of an agreement",
                 ClaimantClaimDetectedKeyPhrases = "Outstanding unpaid bill, invoice, staff",
                 ClaimantClaimDetectedLanguage = "English",
                 ClaimantClaimDetectedLanguageConfidence = 100,
-                DefendantQuestion = "",
-                DefendantResponse = "",
-                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantQuestion = "Do you agree that you owe the claimant obligations under the terms of an agreement",
+                DefendantResponse = "No I do not agree that I had a contract with the claimant",
+                DefendantResponseDetectedKeyPhrases = "do not agree, contract, claimant",
                 DefendantResponseDetectedLanguage = "English",
                 DefendantResponseDetectedLanguageConfidence = 100,
                 CaseOfficerComment = "",
@@ -63,15 +63,15 @@ namespace OnlineCourt.Code
 
             return new ClaimFact
             {
-                ClaimFactCode = "B",
+                ClaimFactCode = "2",
                 ClaimantClaim = "How was the agreement made?",
                 ClaimantClaimResponse = "In a written document",
                 ClaimantClaimDetectedKeyPhrases = "Outstanding unpaid bill, invoice, staff",
                 ClaimantClaimDetectedLanguage = "English",
                 ClaimantClaimDetectedLanguageConfidence = 100,
-                DefendantQuestion = "",
-                DefendantResponse = "",
-                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantQuestion = "Do you agree that the agreement was in a single written document?",
+                DefendantResponse = "No I do not agree that the agreement was in a single written document",
+                DefendantResponseDetectedKeyPhrases = "do not agree, document",
                 DefendantResponseDetectedLanguage = "English",
                 DefendantResponseDetectedLanguageConfidence = 100,
                 CaseOfficerComment = "",
@@ -85,15 +85,15 @@ namespace OnlineCourt.Code
 
             return new ClaimFact
             {
-                ClaimFactCode = "C",
+                ClaimFactCode = "3",
                 ClaimantClaim = "On what date was the agreement made?",
                 ClaimantClaimResponse = "12/04/2017",
                 ClaimantClaimDetectedKeyPhrases = "Outstanding unpaid bill, invoice, staff",
                 ClaimantClaimDetectedLanguage = "English",
                 ClaimantClaimDetectedLanguageConfidence = 100,
-                DefendantQuestion = "",
-                DefendantResponse = "",
-                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantQuestion = "Do you agree that the date of the document is the date the claimant has specified? If not what is the date of the written document",
+                DefendantResponse = "No, the date of the agreement was 12/05/2017",
+                DefendantResponseDetectedKeyPhrases = "No, agreement, 12/05/2017",
                 DefendantResponseDetectedLanguage = "English",
                 DefendantResponseDetectedLanguageConfidence = 100,
                 CaseOfficerComment = "",
@@ -107,15 +107,15 @@ namespace OnlineCourt.Code
 
             return new ClaimFact
             {
-                ClaimFactCode = "D",
+                ClaimFactCode = "4",
                 ClaimantClaim = "What was the Defendant's legal responsibility to you?",
-                ClaimantClaimResponse = "",
+                ClaimantClaimResponse = "N/A",
                 ClaimantClaimDetectedKeyPhrases = "",
                 ClaimantClaimDetectedLanguage = "English",
                 ClaimantClaimDetectedLanguageConfidence = 100,
-                DefendantQuestion = "",
-                DefendantResponse = "",
-                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantQuestion = "Do you agree that you owe the Claimant the legal responsibility stated",
+                DefendantResponse = "No I do not agree that I owe the Claimant the legal responsiblity stated",
+                DefendantResponseDetectedKeyPhrases = "do not agree, responsibility",
                 DefendantResponseDetectedLanguage = "English",
                 DefendantResponseDetectedLanguageConfidence = 100,
                 CaseOfficerComment = "",
@@ -129,15 +129,15 @@ namespace OnlineCourt.Code
 
             return new ClaimFact
             {
-                ClaimFactCode = "E",
+                ClaimFactCode = "5",
                 ClaimantClaim = "How does that legal responsibility arise?",
-                ClaimantClaimResponse = "",
+                ClaimantClaimResponse = "N/A",
                 ClaimantClaimDetectedKeyPhrases = "Outstanding unpaid bill, invoice, staff",
                 ClaimantClaimDetectedLanguage = "English",
                 ClaimantClaimDetectedLanguageConfidence = 100,
-                DefendantQuestion = "",
-                DefendantResponse = "",
-                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantQuestion = "Do you agree that the legal responsibility arises as stated?",
+                DefendantResponse = "No I do not agree that the legal responsiblity arises as such",
+                DefendantResponseDetectedKeyPhrases = "do not agree, responsiblity",
                 DefendantResponseDetectedLanguage = "English",
                 DefendantResponseDetectedLanguageConfidence = 100,
                 CaseOfficerComment = "",
@@ -152,25 +152,26 @@ namespace OnlineCourt.Code
             questions.Add(new CaseFactQuestion
             {
                 ClaimantQuestion = true,
-                Question = "A questions from someone?",
+                Question = "Claim Discussions",
                 Date = new DateTime(2017, 2, 20),
                 Responses = new List<CaseFactQuestionResponse> {
-                        new CaseFactQuestionResponse { IsDefendantResponse = true, Response = "A response here to fill in", ResponseDate = new DateTime(2017, 2, 21) },
-                        new CaseFactQuestionResponse { IsClaimantResponse = true, Response = "A rebuttal", ResponseDate = new DateTime(2017, 2, 22) }
+                        new CaseFactQuestionResponse { IsClaimantResponse = true, Response = "We introduced Mr T to the Defendant in 2016 as a temporary employee and found him working for the Defendant full time in 2017", ResponseDate = new DateTime(2017, 2, 20) },
+                        new CaseFactQuestionResponse { IsDefendantResponse = true, Response = "Mr T approached us directly and not through his introduction by the Claimant. We do not, therefore, owe any money to the Claimant", ResponseDate = new DateTime(2017, 2, 21) },
+                        new CaseFactQuestionResponse { IsClaimantResponse = true, Response = "Undo our terms and conditions....", ResponseDate = new DateTime(2017, 2, 22) }
                     }
             });
 
             return new ClaimFact
             {
-                ClaimFactCode = "F",
+                ClaimFactCode = "6",
                 ClaimantClaim = "What has the Defendant done or failed to do?",
                 ClaimantClaimResponse = "Failed to pay an invoice for staff",
                 ClaimantClaimDetectedKeyPhrases = "Failed, pay, invoice, staff",
                 ClaimantClaimDetectedLanguage = "English",
                 ClaimantClaimDetectedLanguageConfidence = 100,
-                DefendantQuestion = "What question to the defendant goes here",
-                DefendantResponse = "Put the defendants answer here",
-                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantQuestion = "Do you agree that you have failed to do what the Claimant alleges that you have failed to do?",
+                DefendantResponse = "No I do not agree that I have failed to do what the Claimant alleges",
+                DefendantResponseDetectedKeyPhrases = "do not agree, failed",
                 DefendantResponseDetectedLanguage = "English",
                 DefendantResponseDetectedLanguageConfidence = 100,
                 CaseOfficerComment = "Get some text for here",
@@ -184,15 +185,15 @@ namespace OnlineCourt.Code
 
             return new ClaimFact
             {
-                ClaimFactCode = "G",
+                ClaimFactCode = "7",
                 ClaimantClaim = "How has the Defendant's failure caused you loss?",
                 ClaimantClaimResponse = "Unpaid bill for £12,000",
                 ClaimantClaimDetectedKeyPhrases = "Unpaid bill, £12,000",
                 ClaimantClaimDetectedLanguage = "English",
                 ClaimantClaimDetectedLanguageConfidence = 100,
-                DefendantQuestion = "",
-                DefendantResponse = "",
-                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantQuestion = "Do you agree that the Claimant has suffered loss?",
+                DefendantResponse = "I do not agree that the Claimant has suffered loss",
+                DefendantResponseDetectedKeyPhrases = "do not agree, loss",
                 DefendantResponseDetectedLanguage = "English",
                 DefendantResponseDetectedLanguageConfidence = 100,
                 CaseOfficerComment = "",
@@ -206,15 +207,15 @@ namespace OnlineCourt.Code
 
             return new ClaimFact
             {
-                ClaimFactCode = "H",
+                ClaimFactCode = "8",
                 ClaimantClaim = "How much loss has been caused?",
                 ClaimantClaimResponse = "£12,000",
                 ClaimantClaimDetectedKeyPhrases = "£12,000",
                 ClaimantClaimDetectedLanguage = "English",
                 ClaimantClaimDetectedLanguageConfidence = 100,
-                DefendantQuestion = "",
-                DefendantResponse = "",
-                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantQuestion = "In respect of each item of loss that the Claimant alleges to have suffered do you agree or dispute the item of loss",
+                DefendantResponse = "I dispute that £12,000 of loss has been incurred",
+                DefendantResponseDetectedKeyPhrases = "dispute, incurred",
                 DefendantResponseDetectedLanguage = "English",
                 DefendantResponseDetectedLanguageConfidence = 100,
                 CaseOfficerComment = "",

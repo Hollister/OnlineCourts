@@ -91,6 +91,7 @@
         padding:10px;
         margin:5px;
         width:200px;
+        background-color:lightgreen;
     }
 
     .to {
@@ -100,21 +101,22 @@
         padding:10px;
         margin:5px;
         width:200px;
+        background-color:darkolivegreen;
     }
 
     .CaseOfficerQuestion
     {
-        background-color:lightblue;
+        
     }
     
     .DefendantQuestion
     {
-        background-color:lightgreen;
+        
     }
 
     .ClaimantQuestion
     {
-        background-color:mediumpurple;
+        
     }
 
     #convoContainer
@@ -146,6 +148,14 @@
         background-color: white;
         max-height: 0;
         overflow:auto;
+        transition: max-height 0.2s ease-out;
+    } 
+
+    div.panel2 {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow:hidden;
         transition: max-height 0.2s ease-out;
     } 
 
@@ -269,7 +279,7 @@
 
 <div>
     <br/>
-    Please find below your current list of allegations for you to action.
+        <h4>Type of claim: Loss caused by the defendent doing or failing to do something</h4>
     <br />
 </div>
 
@@ -279,9 +289,9 @@
         <table>
             <tr>
                 <td rowspan="2" width="50px" style="font-size:20px">@claimFact.ClaimFactCode</td>
-                <td>@claimFact.ClaimantClaim</td>
+                <td>Q: @claimFact.ClaimantClaim</td>
             </tr>
-            <tr><td style="padding-left:20px;">@claimFact.ClaimantClaimResponse</td></tr>
+            <tr><td>A: @claimFact.ClaimantClaimResponse</td></tr>
         </table>
     </button>
     <div class="panel">
@@ -303,18 +313,17 @@
                     <td style="vertical-align:middle; padding-top:10px; padding-left:2px;">- (Detected @claimFact.DefendantResponseDetectedLanguage - @claimFact.DefendantResponseDetectedLanguageConfidence% sure)</td>
                 </tr>
             </table> 
-            <div style="font-style:italic">@claimFact.DefendantQuestion</div>
-            @claimFact.DefendantResponse 
-            <h3>Claim Discussions</h3>
+            <div style="font-style:italic">Q: @claimFact.DefendantQuestion</div>
+            A: @claimFact.DefendantResponse 
+            <br/><br />
             @foreach (var question in claimFact.Questions)
             {
-
             <div>
                     @if (question.CaseOfficerQuestion)
                     {
                         <button class="accordion2">@question.Question</button>
-                        <div class="panel">
-                            <div style="height:300px">
+                        <div class="panel2">
+                            <div style="height:450px">
                                 <table style="width:100%; margin-top:5px;">
                                     @foreach (var res in question.Responses)
                                 {
@@ -386,8 +395,8 @@
                             @if (question.DefendantQuestion)
                             {
                                 <button class="accordion2">@question.Question</button>
-                                <div class="panel">
-                                    <div style="height:300px">
+                                <div class="panel2">
+                                    <div style="height:450px">
                                         <table style="width:100%; margin-top:5px;">
                                             @foreach (var res in question.Responses)
                                         {
@@ -460,8 +469,8 @@
                             @if (question.ClaimantQuestion)
                             {
                                 <button class="accordion2">@question.Question</button>
-                                <div class="panel">
-                                    <div style="height:300px">
+                                <div class="panel2">
+                                    <div style="height:450px">
                                         <table style="width:100%; margin-top:5px;">
                                             @foreach (var res in question.Responses)
                                         {
