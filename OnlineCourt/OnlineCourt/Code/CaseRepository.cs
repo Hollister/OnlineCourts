@@ -174,7 +174,7 @@ namespace OnlineCourt.Code
                 DefendantResponseDetectedKeyPhrases = "do not agree, failed",
                 DefendantResponseDetectedLanguage = "English",
                 DefendantResponseDetectedLanguageConfidence = 100,
-                CaseOfficerComment = "Get some text for here",
+                CaseOfficerComment = "",
                 Questions = questions
             };
         }
