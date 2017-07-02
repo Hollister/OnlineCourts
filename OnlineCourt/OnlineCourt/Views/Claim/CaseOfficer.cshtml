@@ -155,10 +155,12 @@
         color: #777;
         float: right;
         margin-left: 5px;
+        margin-top: -30px;
     }
 
      button.accordion.active:after {
         content: "\2796"; /* Unicode character for "minus" sign (-) */
+        margin-top: -30px;
     }
 
      button.accordion2 {
@@ -273,7 +275,15 @@
 
 @foreach (var claimFact in Model.ClaimFacts)
 {
-    <button class="accordion">@claimFact.ClaimantClaim</button>
+    <button class="accordion">
+        <table>
+            <tr>
+                <td rowspan="2" width="50px" style="font-size:20px">@claimFact.ClaimFactCode</td>
+                <td>@claimFact.ClaimantClaim</td>
+            </tr>
+            <tr><td style="padding-left:20px;">@claimFact.ClaimantClaimResponse</td></tr>
+        </table>
+    </button>
     <div class="panel">
         <div class="topSection">
             <table style="width:100%">
@@ -293,6 +303,7 @@
                     <td style="vertical-align:middle; padding-top:10px; padding-left:2px;">- (Detected @claimFact.DefendantResponseDetectedLanguage - @claimFact.DefendantResponseDetectedLanguageConfidence% sure)</td>
                 </tr>
             </table> 
+            <div style="font-style:italic">@claimFact.DefendantQuestion</div>
             @claimFact.DefendantResponse 
             <h3>Claim Discussions</h3>
             @foreach (var question in claimFact.Questions)

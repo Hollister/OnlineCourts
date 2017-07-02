@@ -149,6 +149,17 @@ namespace OnlineCourt.Code
         {
             List<CaseFactQuestion> questions = new List<CaseFactQuestion>();
 
+            questions.Add(new CaseFactQuestion
+            {
+                ClaimantQuestion = true,
+                Question = "A questions from someone?",
+                Date = new DateTime(2017, 2, 20),
+                Responses = new List<CaseFactQuestionResponse> {
+                        new CaseFactQuestionResponse { IsDefendantResponse = true, Response = "A response here to fill in", ResponseDate = new DateTime(2017, 2, 21) },
+                        new CaseFactQuestionResponse { IsClaimantResponse = true, Response = "A rebuttal", ResponseDate = new DateTime(2017, 2, 22) }
+                    }
+            });
+
             return new ClaimFact
             {
                 ClaimFactCode = "F",
@@ -157,12 +168,12 @@ namespace OnlineCourt.Code
                 ClaimantClaimDetectedKeyPhrases = "Failed, pay, invoice, staff",
                 ClaimantClaimDetectedLanguage = "English",
                 ClaimantClaimDetectedLanguageConfidence = 100,
-                DefendantQuestion = "",
-                DefendantResponse = "",
+                DefendantQuestion = "What question to the defendant goes here",
+                DefendantResponse = "Put the defendants answer here",
                 DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
                 DefendantResponseDetectedLanguage = "English",
                 DefendantResponseDetectedLanguageConfidence = 100,
-                CaseOfficerComment = "",
+                CaseOfficerComment = "Get some text for here",
                 Questions = questions
             };
         }
