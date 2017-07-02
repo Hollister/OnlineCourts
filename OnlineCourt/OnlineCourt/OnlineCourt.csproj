@@ -265,6 +265,7 @@
     <Content Include="Views\Claim\Defendent.cshtml" />
     <Content Include="Views\Claim\Conciliation.cshtml" />
     <Content Include="Views\Claim\BookaConciliation.cshtml" />
+    <Content Include="Views\Claim\ConciliationHearing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

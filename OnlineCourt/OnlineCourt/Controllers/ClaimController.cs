@@ -56,6 +56,11 @@ namespace OnlineCourt.Controllers
             return View();
         }
 
+        public ActionResult ConciliationHearing()
+        {
+            return View();
+        }
+
         public ActionResult _ClaimFactTextAnalysis()
         {
             return View();
