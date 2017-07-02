@@ -13,8 +13,15 @@ namespace OnlineCourt.Code
             List<ClaimFact> facts = new List<ClaimFact>();
             List<ClaimSettlementOffer> offers = new List<ClaimSettlementOffer>();
 
-            facts.Add(GetClaimFact1());
-            
+            facts.Add(GetClaimFactA());
+            facts.Add(GetClaimFactB());
+            facts.Add(GetClaimFactC());
+            facts.Add(GetClaimFactD());
+            facts.Add(GetClaimFactE());
+            facts.Add(GetClaimFactF());
+            facts.Add(GetClaimFactG());
+            facts.Add(GetClaimFactH());
+
             return new Claim
             {
                 Id = new Guid("85F04508-7908-41DD-97F2-BCCFCF70C72C"),
@@ -25,6 +32,182 @@ namespace OnlineCourt.Code
                 DefendantAddress = "St Albans",
                 ClaimFacts = facts,
                 ClaimSettlementOffers = offers
+            };
+        }
+
+        private ClaimFact GetClaimFactA()
+        {
+            List<CaseFactQuestion> questions = new List<CaseFactQuestion>();
+
+            return new ClaimFact
+            {
+                ClaimFactCode = "A",
+                ClaimantClaim = "How did the Defendant's obligations to you arise?",
+                ClaimantClaimResponse = "Under the terms of an agreement",
+                ClaimantClaimDetectedKeyPhrases = "Outstanding unpaid bill, invoice, staff",
+                ClaimantClaimDetectedLanguage = "English",
+                ClaimantClaimDetectedLanguageConfidence = 100,
+                DefendantQuestion = "",
+                DefendantResponse = "",
+                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantResponseDetectedLanguage = "English",
+                DefendantResponseDetectedLanguageConfidence = 100,
+                CaseOfficerComment = "",
+                Questions = questions
+            };
+        }
+
+        private ClaimFact GetClaimFactB()
+        {
+            List<CaseFactQuestion> questions = new List<CaseFactQuestion>();
+
+            return new ClaimFact
+            {
+                ClaimFactCode = "B",
+                ClaimantClaim = "How was the agreement made?",
+                ClaimantClaimResponse = "In a written document",
+                ClaimantClaimDetectedKeyPhrases = "Outstanding unpaid bill, invoice, staff",
+                ClaimantClaimDetectedLanguage = "English",
+                ClaimantClaimDetectedLanguageConfidence = 100,
+                DefendantQuestion = "",
+                DefendantResponse = "",
+                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantResponseDetectedLanguage = "English",
+                DefendantResponseDetectedLanguageConfidence = 100,
+                CaseOfficerComment = "",
+                Questions = questions
+            };
+        }
+
+        private ClaimFact GetClaimFactC()
+        {
+            List<CaseFactQuestion> questions = new List<CaseFactQuestion>();
+
+            return new ClaimFact
+            {
+                ClaimFactCode = "C",
+                ClaimantClaim = "On what date was the agreement made?",
+                ClaimantClaimResponse = "12/04/2017",
+                ClaimantClaimDetectedKeyPhrases = "Outstanding unpaid bill, invoice, staff",
+                ClaimantClaimDetectedLanguage = "English",
+                ClaimantClaimDetectedLanguageConfidence = 100,
+                DefendantQuestion = "",
+                DefendantResponse = "",
+                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantResponseDetectedLanguage = "English",
+                DefendantResponseDetectedLanguageConfidence = 100,
+                CaseOfficerComment = "",
+                Questions = questions
+            };
+        }
+
+        private ClaimFact GetClaimFactD()
+        {
+            List<CaseFactQuestion> questions = new List<CaseFactQuestion>();
+
+            return new ClaimFact
+            {
+                ClaimFactCode = "D",
+                ClaimantClaim = "What was the Defendant's legal responsibility to you?",
+                ClaimantClaimResponse = "",
+                ClaimantClaimDetectedKeyPhrases = "",
+                ClaimantClaimDetectedLanguage = "English",
+                ClaimantClaimDetectedLanguageConfidence = 100,
+                DefendantQuestion = "",
+                DefendantResponse = "",
+                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantResponseDetectedLanguage = "English",
+                DefendantResponseDetectedLanguageConfidence = 100,
+                CaseOfficerComment = "",
+                Questions = questions
+            };
+        }
+
+        private ClaimFact GetClaimFactE()
+        {
+            List<CaseFactQuestion> questions = new List<CaseFactQuestion>();
+
+            return new ClaimFact
+            {
+                ClaimFactCode = "E",
+                ClaimantClaim = "How does that legal responsibility arise?",
+                ClaimantClaimResponse = "",
+                ClaimantClaimDetectedKeyPhrases = "Outstanding unpaid bill, invoice, staff",
+                ClaimantClaimDetectedLanguage = "English",
+                ClaimantClaimDetectedLanguageConfidence = 100,
+                DefendantQuestion = "",
+                DefendantResponse = "",
+                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantResponseDetectedLanguage = "English",
+                DefendantResponseDetectedLanguageConfidence = 100,
+                CaseOfficerComment = "",
+                Questions = questions
+            };
+        }
+
+        private ClaimFact GetClaimFactF()
+        {
+            List<CaseFactQuestion> questions = new List<CaseFactQuestion>();
+
+            return new ClaimFact
+            {
+                ClaimFactCode = "F",
+                ClaimantClaim = "What has the Defendant done or failed to do?",
+                ClaimantClaimResponse = "Failed to pay an invoice for staff",
+                ClaimantClaimDetectedKeyPhrases = "Failed, pay, invoice, staff",
+                ClaimantClaimDetectedLanguage = "English",
+                ClaimantClaimDetectedLanguageConfidence = 100,
+                DefendantQuestion = "",
+                DefendantResponse = "",
+                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantResponseDetectedLanguage = "English",
+                DefendantResponseDetectedLanguageConfidence = 100,
+                CaseOfficerComment = "",
+                Questions = questions
+            };
+        }
+
+        private ClaimFact GetClaimFactG()
+        {
+            List<CaseFactQuestion> questions = new List<CaseFactQuestion>();
+
+            return new ClaimFact
+            {
+                ClaimFactCode = "G",
+                ClaimantClaim = "How has the Defendant's failure caused you loss?",
+                ClaimantClaimResponse = "Unpaid bill for £12,000",
+                ClaimantClaimDetectedKeyPhrases = "Unpaid bill, £12,000",
+                ClaimantClaimDetectedLanguage = "English",
+                ClaimantClaimDetectedLanguageConfidence = 100,
+                DefendantQuestion = "",
+                DefendantResponse = "",
+                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantResponseDetectedLanguage = "English",
+                DefendantResponseDetectedLanguageConfidence = 100,
+                CaseOfficerComment = "",
+                Questions = questions
+            };
+        }
+
+        private ClaimFact GetClaimFactH()
+        {
+            List<CaseFactQuestion> questions = new List<CaseFactQuestion>();
+
+            return new ClaimFact
+            {
+                ClaimFactCode = "H",
+                ClaimantClaim = "How much loss has been caused?",
+                ClaimantClaimResponse = "£12,000",
+                ClaimantClaimDetectedKeyPhrases = "£12,000",
+                ClaimantClaimDetectedLanguage = "English",
+                ClaimantClaimDetectedLanguageConfidence = 100,
+                DefendantQuestion = "",
+                DefendantResponse = "",
+                DefendantResponseDetectedKeyPhrases = "claimant, obligations, invoice",
+                DefendantResponseDetectedLanguage = "English",
+                DefendantResponseDetectedLanguageConfidence = 100,
+                CaseOfficerComment = "",
+                Questions = questions
             };
         }
 
@@ -46,7 +229,7 @@ namespace OnlineCourt.Code
             questions.Add(new CaseFactQuestion
             {
                 CaseOfficerQuestion = true,
-                Question = "I have looked through the contract and agree that although most requirements were met by the claimant, the defendant does has cause for complaint as not all obligations were met. Would both parties be happy for the dependant to pay a reduced invoice?",
+                Question = "I have looked through the contract and agree that although most requirements were met by the claimant, the defendant does has cause for complaint as not all obligations were met. Would both parties be happy for the defendent to pay a reduced invoice?",
                 Date = new DateTime(2017, 2, 25),
                 Responses = new List<CaseFactQuestionResponse> {
                         new CaseFactQuestionResponse { IsDefendantResponse = true, Response = "Based on the costs incurred by us because of the lack of staff we would be happy to pay £10,000 of the invoice", ResponseDate = new DateTime(2017, 2, 26) },
