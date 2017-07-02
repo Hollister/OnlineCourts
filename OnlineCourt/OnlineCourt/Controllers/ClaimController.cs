@@ -41,6 +41,16 @@ namespace OnlineCourt.Controllers
             return View();
         }
 
+        public ActionResult Conciliation()
+        {
+            return View();
+        }
+
+        public ActionResult BookaConciliation()
+        {
+            return View();
+        }
+
         public ActionResult _CaseHeader()
         {
             return View();
