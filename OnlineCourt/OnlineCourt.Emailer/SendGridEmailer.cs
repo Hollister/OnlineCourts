@@ -11,7 +11,7 @@ namespace OnlineCourt.Emailer
 {
     public static class SendGridEmailer
     {
-        static string _apikey = "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";
+        static string _apikey = "";
         static string _fromaddress = "noreply@pepperminttechnology.co.uk";
 
         public static void SendEmail(string[] recipients, string subject, string body, Tuple<string, byte[]>[] attachments = null)
